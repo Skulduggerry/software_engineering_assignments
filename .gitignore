@@ -1,0 +1,12 @@
+# IntelliJ IDE files
+**/.idea
+*.iml
+
+# binary files
+**/out
+
+# gradle files
+**/.gradle
+
+# avoid ignoring gradle wrapper
+!gradle-wrapper.jar
