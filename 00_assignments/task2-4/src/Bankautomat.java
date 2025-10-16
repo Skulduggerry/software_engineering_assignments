@@ -16,13 +16,14 @@ public class Bankautomat {
     public static int readConsoleInput() {
         BufferedReader reader = new BufferedReader(
                 new InputStreamReader(System.in));
-        String line;
-        try {
-            line = reader.readLine();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        while (true) {
+            try {
+                String line = reader.readLine();
+                return Integer.parseInt(line);
+            } catch (Exception e) {
+                System.err.print("Something went wrong. Please enter again: ");
+            }
         }
-        return Integer.parseInt(line);
     }
 
     public static void main(String[] args) {
@@ -35,29 +36,31 @@ public class Bankautomat {
         int option = readConsoleInput();
         int amount;
 
-        switch (option) {
-            case 1: // Geld einzahlen
-                System.out.println();
-                System.out.print("Gewünschter Einzahlungsbetrag: ");
-                amount = readConsoleInput();
-                s.add(amount);
-                s.info();
-                break;
-            case 2: // Geld abheben
-                System.out.println();
-                System.out.print("Gewünschter Auszahlungsbetrag: ");
-                amount = readConsoleInput();
-                s.withdraw(amount);
-                s.info();
-                break;
-            case 3: // Kontostand anzeigen
-                System.out.println();
-                s.info();
-                break;
-            case 4: // Beenden
-                break;
+        while (option != 4) {
+            switch (option) {
+                case 1: // Geld einzahlen
+                    System.out.println();
+                    System.out.print("Gewünschter Einzahlungsbetrag: ");
+                    amount = readConsoleInput();
+                    s.add(amount);
+                    s.info();
+                    break;
+                case 2: // Geld abheben
+                    System.out.println();
+                    System.out.print("Gewünschter Auszahlungsbetrag: ");
+                    amount = readConsoleInput();
+                    s.withdraw(amount);
+                    s.info();
+                    break;
+                case 3: // Kontostand anzeigen
+                    System.out.println();
+                    s.info();
+                    break;
+            }
+            System.out.println();
+            printMenu();
+            option = readConsoleInput();
         }
-        System.out.println();
 
         System.out.print("Vielen Dank für Ihren Besuch!");
     }
