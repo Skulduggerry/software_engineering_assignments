@@ -4,6 +4,7 @@
 
 # binary files
 **/out
+**/build
 
 # gradle files
 **/.gradle
