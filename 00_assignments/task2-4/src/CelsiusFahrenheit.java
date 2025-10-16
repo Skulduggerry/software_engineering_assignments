@@ -9,7 +9,7 @@ public class CelsiusFahrenheit {
         System.out.println("Celsius \t Fahrenheit");
 
         for (int c = 5; c < 20; c++) {
-
+            // das macht Hannah
             System.out.println(c + "\t"/* + celsiusFahrenheit(c)*/);
         }
 
