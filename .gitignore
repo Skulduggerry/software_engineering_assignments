@@ -11,3 +11,6 @@
 
 # avoid ignoring gradle wrapper
 !gradle-wrapper.jar
+
+# OS files
+**/.DS_Store
